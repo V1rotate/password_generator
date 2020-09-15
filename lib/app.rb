@@ -13,7 +13,6 @@
 def get_password_length
   puts "How many characters would you like your password to be?"
   print "> "
-
   gets.chomp.to_i #implicit return of number
 end
 
@@ -24,10 +23,32 @@ def generate_password
     ascii_decimal = rand(33..126) # generate random asci based on number
     password = password + ascii_decimal.chr # adds asci to password
   end
-  password # implicit return of new password
+  return password # implicit return of new password
 end
 
-p generate_password
+def menu
+  puts "what would you like to do? (1 or 2)"
+  puts "1. Generate new Password"
+  puts "2. Exit"
+  print "> "
+end
+
+def user_selection
+  menu
+  gets.chomp.to_i
+end
+
+#while true
+loop do
+  case user_selection
+  when 1
+    puts generate_password
+  when 2
+    exit
+  else
+    puts "wrong input. type 1 or 2"
+  end
+end
 
 
 
